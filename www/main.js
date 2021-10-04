@@ -4,7 +4,7 @@ const app = Vue.createApp({
       carrito: 0,
       producto: "Calcetines",
       imagen: "./assets/images/socks_green.jpg",
-      inventario: 100,
+      stock: true,
       detalles: ['50% Algodon', '20% Lana', '30% Polyester'],
       tipos: [
         {

@@ -19,16 +19,20 @@
             </div>
             <div class="product-info">
                 <h1>{{ producto }}</h1>
-                <p v-if="inventario > 10">Hay Stock</p>
-                <p v-else-if="inventario > 0 && inventario <=10">Producto casi agotado</p>
+                <p v-if="stock">Hay Stock</p>
                 <p v-else>No hay Stock</p>
                 <ul>
                     <li v-for="materiales in detalles">{{ materiales }}</li>
                 </ul>
-                <div v-for="tipo in tipos" :key="tipo.id" @mouseover="actualizarImagen(tipo.imagen)">
-                    {{ tipo.color }}
+                <div v-for="tipo in tipos"
+                     :key="tipo.id"
+                     @mouseover="actualizarImagen(tipo.imagen)"
+                     class="color-circle"
+                     :style="{ backgroundColor: tipo.color }">
                 </div>
-                <button class="button" @click="anadirAlCarrito">Al carrito</button>
+                <button class="button" :class=" { disabledButton: !stock }"
+                        @click="anadirAlCarrito"
+                        :disabled="!stock">Al carrito</button>
             </div>
         </div>
     </div>

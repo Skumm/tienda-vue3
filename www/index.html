@@ -22,6 +22,12 @@
                 <p v-if="inventario > 10">Hay Stock</p>
                 <p v-else-if="inventario > 0 && inventario <=10">Producto casi agotado</p>
                 <p v-else>No hay Stock</p>
+                <ul>
+                    <li v-for="materiales in detalles">{{ materiales }}</li>
+                </ul>
+                <div v-for="tipo in tipos" :key="tipo.id">
+                    {{ tipo.color }}
+                </div>
             </div>
         </div>
     </div>

@@ -1,6 +1,7 @@
 const app = Vue.createApp({
   data() {
     return {
+      carrito: 0,
       producto: "Calcetines",
       imagen: "./assets/images/socks_green.jpg",
       inventario: 100,
@@ -8,13 +9,23 @@ const app = Vue.createApp({
       tipos: [
         {
           id: 3334,
-          color: 'Verde'
+          color: 'green',
+          imagen: "./assets/images/socks_green.jpg"
         },
         {
           id: 3335,
-          color: 'Azul'
+          color: 'blue',
+          imagen: "./assets/images/socks_blue.jpg"
         },
       ]
+    }
+  },
+  methods: {
+    anadirAlCarrito() {
+      this.carrito += 1;
+    },
+    actualizarImagen(imagen) {
+      this.imagen = imagen;
     }
   }
 })

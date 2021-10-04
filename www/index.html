@@ -18,15 +18,15 @@
                 <img v-bind:src="imagen">
             </div>
             <div class="product-info">
-                <h1>{{ producto }}</h1>
+                <h1>{{ title }}</h1>
                 <p v-if="stock">Hay Stock</p>
                 <p v-else>No hay Stock</p>
                 <ul>
                     <li v-for="materiales in detalles">{{ materiales }}</li>
                 </ul>
-                <div v-for="tipo in tipos"
+                <div v-for="(tipo, index) in tipos"
                      :key="tipo.id"
-                     @mouseover="actualizarImagen(tipo.imagen)"
+                     @mouseover="actualizarEstado(index)"
                      class="color-circle"
                      :style="{ backgroundColor: tipo.color }">
                 </div>

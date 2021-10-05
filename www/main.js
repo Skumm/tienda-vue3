@@ -1,9 +1,13 @@
 const app = Vue.createApp({
   data() {
     return {
-      carrito: 0,
+      carrito: [],
       premium: false
     }
   },
-  methods: {},
+  methods: {
+    actualizarCarrito(id) {
+      this.carrito.push(id);
+    }
+  },
 })

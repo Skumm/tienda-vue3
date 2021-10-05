@@ -11,8 +11,10 @@
 <body>
 <div id="app">
     <div class="nav-bar"></div>
-    <div class="cart">Carrito {{ carrito }}</div>
-    <product-display :premium="premium"></product-display>
+    <div class="cart">Carrito {{ carrito.length }}</div>
+    <product-display
+            :premium="premium"
+            @anadir-al-carrito="actualizarCarrito"></product-display>
 </div>
     <!-- Importamos APP -->
     <script src="./main.js"></script>

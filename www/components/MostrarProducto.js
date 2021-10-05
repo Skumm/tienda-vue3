@@ -56,7 +56,7 @@ app.component('product-display', {
   },
   methods: {
     anadirAlCarrito() {
-      this.carrito += 1;
+      this.$emit('anadir-al-carrito', this.tipos[this.tipoSeleccionado].id);
     },
     actualizarEstado(index) {
       this.tipoSeleccionado = index;

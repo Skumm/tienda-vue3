@@ -31,12 +31,16 @@ app.component('product-display', {
                         :disabled="!stock">Al carrito</button>
             </div>
         </div>
+        <lista-opiniones :resenas="resena" v-if="resena.length"></lista-opiniones>
+        <formulario-opiniones
+        @comentario-eviado="mostrarResena"></formulario-opiniones>
     </div>`,
   data() {
     return {
       marca: 'Tienda',
       producto: "Calcetines",
       tipoSeleccionado: 0,
+      resena: [],
       detalles: ['50% Algodon', '20% Lana', '30% Polyester'],
       tipos: [
         {
@@ -60,6 +64,9 @@ app.component('product-display', {
     },
     actualizarEstado(index) {
       this.tipoSeleccionado = index;
+    },
+    mostrarResena(resena) {
+      this.resena.push(resena);
     }
   },
   computed: {
